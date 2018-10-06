@@ -44,32 +44,72 @@ function initMap() {
         map: map
     }),
 
-    pointA = {
-        "lat": 8.5241,
-        "lng": 76.9366
-    }
+    dangerlocations_arr.forEach(dangerpoint => {
+        calculateAndDisplayRoute(directionsService, directionsDisplay, dangerpoint, safelocations_arr);        
+    });
 
-    pointB = {
-        "lat": 9.9312,
-        "lng": 76.2673
-    }
-
-    calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
-    directionsService.route({
-        origin: pointA,
-        destination: pointB,
-        travelMode: google.maps.TravelMode.DRIVING
-    }, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            console.log(response.routes[0].legs[0].distance.value);
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
+function calculateAndDisplayRoute(directionsService, directionsDisplay, dangerpoint, safepoint_arr) {
+    var counter=0;
+    pointA = dangerpoint;
+    var minDist=3214000;
+    var safestPoint=safepoint_arr[0];
+    safepoint_arr.forEach(pointB => {
+        directionsService.route({
+            origin: pointA,
+            destination: pointB,
+            travelMode: google.maps.TravelMode.DRIVING
+        }, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                // directionsDisplay.setDirections(response);
+                var dist = response.routes[0].legs[0].distance.value;
+                // console.log(response.routes[0].legs[0].distance.value);
+                
+                if(dist<minDist){
+                    minDist=dist;
+                    safestPoint=pointB;
+                }
+            } else {
+                // window.alert('Directions request failed due to ' + status);
+            }
+            if (counter == safepoint_arr.length-1) {
+                console.log(JSON.stringify(dangerpoint) + " " + JSON.stringify(safestPoint) + " " + minDist);
+
+            }
+            counter++;
+        });
+        
     });
+
+    
+    
+
+        
 }
 
 initMap();
+
+
+
+// function nearestSafePoint(directionsService, directionsDisplay) {
+//     // console.log(dangerlocations_arr);
+//     // console.log(safelocations_arr);
+    
+//     dangerlocations_arr.forEach(dangerpoint => {
+//         var min;
+//         var safestPoint;
+        
+//         safelocations_arr.forEach(saferpoint => {
+            
+//             var dist = calculateAndDisplayRoute(directionsService, directionsDisplay, dangerpoint, saferpoint)
+//             console.log("aman= "+dist);
+            
+//             if(dist<min){
+//                 min=dist;
+//                 safestPoint=saferpoint;
+//             }
+//         }); 
+//         console.log(safestPoint);              
+//     });
+// }

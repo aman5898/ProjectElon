@@ -9,12 +9,20 @@ let mainWindow;
 //Listen for app to be ready
 app.on('ready', function () {
     //Create a new Window
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        titleBarStyle: 'hidden',
+        width: 1281,
+        height: 800,
+        minWidth: 1281,
+        minHeight: 800,
+        //icon
+        icon: path.join(__dirname, 'assets/icons/NOAH.png')
+    });
     //Load Html into window
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'mainWindow.html'),
         protocol: 'file:',
-        slashes: true
+        slashes: true,
     }));
     //Quit app when closed
     mainWindow.on('closed', function () {
@@ -31,6 +39,7 @@ app.on('ready', function () {
         app.quit();
     })
 
+    
 });
 
 

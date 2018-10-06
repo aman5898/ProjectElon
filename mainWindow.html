@@ -3,22 +3,47 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Project NOAH</title>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
-                <nav>
-                    <div class="nav-wrapper">
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="sass.html">Monitor</a></li>
-                            <li><a href="badges.html">History</a></li>
-                        </ul>
-                    </div>
-                </nav>
+                <div class="w3-bar w3-black">
+                    <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
+                    <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+                    <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
+                </div>
+                
+                <div id="London" class="w3-container city">
+                    <h2>London</h2>
+                    <p>London is the capital city of England.</p>
+                </div>
+                
+                <div id="Paris" class="w3-container city" style="display:none">
+                    <h2>Paris</h2>
+                    <p>Paris is the capital of France.</p>
+                </div>
+                
+                <div id="Tokyo" class="w3-container city" style="display:none">
+                    <h2>Tokyo</h2>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
             </div>
-            <div class="col-9">Nishant</div>
+            <div class="col-9">
+                <div id="map"></div>
+                <script>
+                    var map;
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: { lat: -34.397, lng: 150.644 },
+                            zoom: 8
+                        });
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=" async defer></script>
+            </div>
         </div>
     </div>
     
@@ -28,5 +53,15 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(cityName).style.display = "block";
+        }
+    </script>
 </body>
 </html>

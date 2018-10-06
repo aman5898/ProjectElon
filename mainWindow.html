@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg4OQkI924VqS0eIi934K73L3o05zqe9I&callback=initMap"
+        async defer></script>
+    <script src="./googlemaps.js"></script>
     <title>Project NOAH</title>
     <style>
         .padding-zero{
@@ -43,16 +46,6 @@
             </div>
             <div class="col-9">
                 <div id="map" style="height: 98vh" class="row"></div>
-                <script>
-                    var map;
-                    function initMap() {
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            center: { lat: -34.397, lng: 150.644 },
-                            zoom: 8
-                        });
-                    }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg4OQkI924VqS0eIi934K73L3o05zqe9I&callback=initMap" async defer></script>
             </div>
         </div>
     </div>

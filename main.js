@@ -15,9 +15,13 @@ app.on('ready', function () {
         height: 800,
         minWidth: 1281,
         minHeight: 800,
+        show: false,
         //icon
         icon: path.join(__dirname, 'assets/icons/NOAH.png')
     });
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show()
+    })
     //Load Html into window
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'mainWindow.html'),
@@ -68,6 +72,7 @@ const mainMenuTemplate = [
         submenu: [
             {
                 label: 'Map',
+                
             }, {
                 label: 'Satellite',
             },

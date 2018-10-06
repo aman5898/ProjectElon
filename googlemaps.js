@@ -2,15 +2,13 @@ var arr = require('./map-points.json')
 
 var dangerlocations_arr = arr.dangerzones
 var safelocations_arr = arr.safezones
+var map;
 
 function initMap() {
-
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: { lat: -28.024, lng: 140.887 }
     });
-
-
     // Add some markers to the map.
     // Note: The code uses the JavaScript Array.prototype.map() method to
     // create an array of markers based on a given "locations" array.
@@ -80,16 +78,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, dangerpo
             counter++;
         });
         
-    });
-
-    
-    
-
-        
+    }); 
 }
 
-initMap();
+function setMap() {
+    map.setMapTypeId('terrain');
+}
 
+
+initMap();
 
 
 // function nearestSafePoint(directionsService, directionsDisplay) {

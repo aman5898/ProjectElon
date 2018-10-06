@@ -5,12 +5,22 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Project NOAH</title>
+    <style>
+        .padding-zero{
+            padding: 0;
+        }
+        .w3-bar{
+            font-weight: 600;
+            font-size: 18px;
+            border-bottom: solid 0.25px grey;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid" style="height: 98vh;">
         <div class="row">
-            <div class="col-3">
-                <div class="w3-bar w3-white">
+            <div class="col-3 padding-zero">
+                <div class="w3-bar w3-light">
                     <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
                     <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
                     <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
@@ -32,7 +42,7 @@
                 </div>
             </div>
             <div class="col-9">
-                <div id="map" style="height: 100%;"></div>
+                <div id="map" style="height: 98vh" class="row"></div>
                 <script>
                     var map;
                     function initMap() {

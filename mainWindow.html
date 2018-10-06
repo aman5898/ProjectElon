@@ -4,19 +4,46 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        .left-side{
+            border: solid 1px black;
+        }
+        .nav{
+            border: solid 1px black;
+            font-weight: 600;
+            color: white;
+            background: #d44950;
+            padding: 12px;
+            align-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .left-side .nav >.col:hover{
+            color: darkgrey;
+        }
+        .left-side .nav >.col{
+            /* border: solid 0.5px black */
+        }
+
+        .current{
+            color: darkgrey;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
-                <nav>
-                    <div class="nav-wrapper">
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="sass.html">Monitor</a></li>
-                            <li><a href="badges.html">History</a></li>
-                        </ul>
-                    </div>
-                </nav>
+        <div class="row ">
+            <div class="col-3 left-side">
+                <div class="row nav">
+                   <div class="col current">
+                       Monitor
+                   </div>
+                   <div class="col">
+                       History
+                   </div>
+                </div>
             </div>
             <div class="col-9">Nishant</div>
         </div>

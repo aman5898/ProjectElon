@@ -4,10 +4,11 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "electron": "^3.0.2",
+    "electron": "^3.0.2"
+  },
+  "devDependencies": {
     "electron-packager": "^12.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "electron ."
   },

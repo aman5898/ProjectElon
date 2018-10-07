@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -11,16 +12,49 @@
         crossorigin="anonymous">
     <title>Project NOAH</title>
     <style>
-        .padding-zero{
+        .padding-zero {
             padding: 0;
         }
-        .w3-bar{
+
+        .w3-bar {
             font-weight: 400;
             font-size: 16px;
             border-bottom: solid 0.25px grey;
         }
+
+        #Monitor>h2 {
+            border-bottom: solid 2px grey;
+            text-align: center
+        }
+
+        #Monitor button {
+            border-radius: 15px;
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+            padding: 5px 13px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        #Monitor button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        div {
+            /* border: solid 1px black; */
+        }
     </style>
 </head>
+
 <body>
     <div class="container-fluid" style="height: 98vh;">
         <div class="row">
@@ -29,11 +63,16 @@
                     <button class="w3-bar-item w3-button" onclick="openCity('Monitor')">Monitor</button>
                     <button class="w3-bar-item w3-button" onclick="openCity('History')">History</button>
                 </div>
-                
+
                 <div id="Monitor" class="w3-container city">
                     <h2>Monitor</h2>
+                    <div class="row mt-2">
+                        <div class="col mt-2">Lattitude</div>
+                        <div class="col mt-2">Longitude</div>
+                        <div class="col"> Safer Route </div>
+                    </div>
                 </div>
-                
+
                 <div id="History" class="w3-container city" style="display:none">
                     <h2>History</h2>
                 </div>
@@ -46,15 +85,34 @@
             <i class="fas fa-globe" style="margin-top: 4px"></i> &nbsp; Online
         </div>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+
+
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="./tabs.js"></script>
+    <script>
+        var arr = require('./map-points.json')
+        var $ = require("jquery");
+        var dangerlocations_arr = arr.dangerzones;
+        dangerlocations_arr.forEach(dangerlocation => {
+            $("#Monitor").append(`<div class="row mt-2">
+                                        <div class="col mt-3">${dangerlocation.lat}</div>
+                                        <div class="col mt-3">${dangerlocation.lng}</div>
+                                        <div class="col"> <button>Route</button> </div>
+                                    </div>`)
+            console.log(dangerlocation.lat);
+
+        });
+
+    </script>
 </body>
+
 </html>

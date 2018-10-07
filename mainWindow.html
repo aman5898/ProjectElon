@@ -21,8 +21,13 @@
         <div class="row">
             <div class="col-3 padding-zero">
                 <div class="w3-bar w3-light">
+                    <button class="w3-bar-item w3-button" onclick="openCity('Alert')">Alert</button>
                     <button class="w3-bar-item w3-button" onclick="openCity('Monitor')">Monitor</button>
                     <button class="w3-bar-item w3-button" onclick="openCity('History')">History</button>
+                </div>
+
+                <div id="Alert" class="w3-container city" style="display:none">
+                    <h2>Alert</h2>
                 </div>
 
                 <div id="Monitor" class="w3-container city">

@@ -9,8 +9,8 @@ var directionsDisplay;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
-        center: { lat: -28.024, lng: 140.887 }
+        zoom: 5,
+        center: { lat: 10.8505, lng: 76.2711 }
     });
     // Add some markers to the map.
     // Note: The code uses the JavaScript Array.prototype.map() method to

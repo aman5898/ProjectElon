@@ -1,6 +1,12 @@
-import readXlsxFile from 'read-excel-file/node'
+const excelToJson = require('convert-excel-to-json');
 
-// File path.
-readXlsxFile('./assets/kerala-coordinates.xlsx').then((rows) => {
-    
-})
+const result = excelToJson({
+    sourceFile: './assets/kerala-coordinates.xlsx',
+    range: 'E1:F3',
+    columnToKey: {
+        E: 'lat',
+        F: 'lng'
+    }
+});
+
+console.log(result);

@@ -1,0 +1,1 @@
+load kerala-coordinates.xlsx

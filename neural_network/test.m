@@ -6,7 +6,7 @@ labels(labels==0)=2;
 rng(1);
 w1=1e-2*rand([9 9 20]);
 w5 =(2*rand(100,2000)-1)*sqrt(6)/sqrt(360+2000);
-w0 =(2*rand(10,100)-1)*sqrt(6)/sqrt(10+100);
+w0 =(2*rand(2,100)-1)*sqrt(6)/sqrt(10+100);
 x=images(:,:,1:12);
 d=labels(1:12);
 
@@ -28,8 +28,11 @@ for k=1:n
         y6=ReLu(y5);
         y7=w0*y6;
         y=Softmax(y7);
+        q(:,k)=y;
         [~,i]=max(y);
+        aq(k)=i;
         if i==d(k)
+            
         acc=acc+1;
         end
 end

@@ -48,7 +48,7 @@ for batch=1:length(blist)
     m1=alpha*dw1+beta*m1;
     w1=w1+m1;
     
-    m1=alpha*dw1+beta*m1;
+    %m5=alpha*dw5+beta*m5;
     w5=w5+m5;
     
     m0=alpha*dw0+beta*m0;

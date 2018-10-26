@@ -5,13 +5,13 @@ labels=loadlabels('out.xlsx');
 labels(labels==0)=2;
 rng(1);
 w1=1e-2*rand([9 9 20]);
-w5 =(2*rand(100,2000)-1)*sqrt(6)/sqrt(360+2000);
+w5 =(2*rand(100,2000)-1)*sqrt(6)/sqrt(100+2000);
 w0 =(2*rand(2,100)-1)*sqrt(6)/sqrt(10+100);
 x=images(:,:,1:12);
 d=labels(1:12);
 
 for epoch= 1:100
-    epoch
+    
     [w1,w5,w0]=train(w1,w5,w0,x,d);
 end
 save('train.mat');

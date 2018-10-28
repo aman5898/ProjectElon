@@ -38,11 +38,11 @@ $('#Monitor').on('click', '.routeButton', function () {
     Slng=$(this)["0"].attributes[4].nodeValue;
     Area=$(this)["0"].attributes[5].nodeValue;
     Population=$(this)["0"].attributes[6].nodeValue;
-    Density=parseFloat($(this)["0"].attributes[7].nodeValue);
+    // Density=parseFloat($(this)["0"].attributes[7].nodeValue);
     LocationName=$(this)["0"].attributes[8].nodeValue;
     WaterArea=$(this)["0"].attributes[9].nodeValue;
 
-    Density=Density.toFixed(3)
+    // Density=Density.toFixed(3)
     obj1={
         "lat":  parseFloat(DLat),
         "lng":  parseFloat(Dlng)
@@ -58,9 +58,9 @@ $('#Monitor').on('click', '.routeButton', function () {
     
     $(".console").append(`<div class="row ml-3">Area = ${Area} Km</div>`);
     $(".console").append(` <div class="row ml-3">Population = ${Population}</div>`);
-    $(".console").append(`<div class="row ml-3">Density = ${Density} </div>`);
+    // $(".console").append(`<div class="row ml-3">Density = ${Density} </div>`);
     $(".console").append(`<div class="row ml-3">Location = ${LocationName} </div> `);
-    $(".console").append(` <div class="row ml-3">WaterArea = ${WaterArea} m^2</div>`);
+    $(".console").append(` <div class="row ml-3">Total Water Rise = ${WaterArea} m^2</div>`);
     // console.log($(this)["0"].attributes[2].nodeValue);
     // console.log(dangerlocations_arr[0]);
     // obj = {

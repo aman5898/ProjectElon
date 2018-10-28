@@ -5,7 +5,7 @@ m1=zeros(size(w1));
 m5=zeros(size(w5));
 m0=zeros(size(w0));
 n=length(d);
-bsize=10;
+bsize=2;
 blist=1:bsize:(n-bsize+1);
 
 for batch=1:length(blist)
@@ -23,7 +23,7 @@ for batch=1:length(blist)
         y6=ReLu(y5);
         y7=w0*y6;
         y=Softmax(y7);
-        l=zeros(10,1);
+        l=zeros(2,1);
         l(sub2ind(size(l),d(k),1))=1;
         e=l-y;
         delta=e;
@@ -48,7 +48,7 @@ for batch=1:length(blist)
     m1=alpha*dw1+beta*m1;
     w1=w1+m1;
     
-    m1=alpha*dw1+beta*m1;
+    %m5=alpha*dw5+beta*m5;
     w5=w5+m5;
     
     m0=alpha*dw0+beta*m0;
